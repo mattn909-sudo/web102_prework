@@ -31,12 +31,13 @@ function addGamesToPage(games) {
     // loop over each item in the data
     games.forEach((game) => {
         const newDiv = document.createElement('div');
-        const display = `<h1> ${game.name}</h1>
+        const display = `<img class="game-img" src=${game.img} alt="Cover art for ${game.name}">
+                        <h1> ${game.name}</h1>
                         <p>${game.description}</p>
                         <p>Goal ($): ${game.goal}</p>
                         <p>Money Pledged: ($) ${game.pledged}</p>
                         <p>Backers: ${game.backers}</p>
-                        <img src=${game.img} alt="Cover art for ${game.name}">
+                        
 
         `
         newDiv.classList.add('game-card');
