@@ -34,9 +34,9 @@ function addGamesToPage(games) {
         const display = `<img class="game-img" src=${game.img} alt="Cover art for ${game.name}">
                         <h1> ${game.name}</h1>
                         <p>${game.description}</p>
-                        <p>Goal ($): ${game.goal}</p>
-                        <p>Money Pledged: ($) ${game.pledged}</p>
-                        <p>Backers: ${game.backers}</p>
+                        <p>Goal ($): ${game.goal.toLocaleString('en-US')}</p>
+                        <p>Money Pledged: ($) ${game.pledged.toLocaleString('en-US')}</p>
+                        <p>Backers: ${game.backers.toLocaleString('en-US')}</p>
                         
 
         `
@@ -119,7 +119,6 @@ function filterUnfundedOnly() {
 
 }
 
-filterFundedOnly();
 // show only games that are fully funded
 function filterFundedOnly() {
     deleteChildElements(gamesContainer);
@@ -196,8 +195,17 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 
+let [firstGame, secondGame, ...others] = sortedGames;
+let [firstName, secondName] = [firstGame.name, secondGame.name]
+
 // use destructuring and the spread operator to grab the first and second games
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
-
+let topPledge = document.createElement('p');
+topPledge.innerHTML = firstName;
+firstGameContainer.appendChild(topPledge);
 // do the same for the runner up item
+
+let runnerPledge = document.createElement('p');
+runnerPledge.innerHTML = secondName;
+secondGameContainer.appendChild(runnerPledge);
