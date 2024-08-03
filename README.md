@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='./Peek 2024-08-02 21-16.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Peek 2024-08-02 21-37](https://github.com/user-attachments/assets/8d8504db-87f9-44bb-b8f9-47efe79ba33d)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  Peek for Linux
