@@ -146,6 +146,8 @@ function showAllGames() {
 const unfundedBtn = document.getElementById("unfunded-btn");
 const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
+const sortHighBtn = document.getElementById("sortHigh-btn");
+const sortLowBtn = document.getElementById("sortLow-btn");
 
 // add event listeners with the correct functions to each button
 unfundedBtn.addEventListener("click", () => {
@@ -158,6 +160,16 @@ fundedBtn.addEventListener("click", () => {
 
 allBtn.addEventListener("click", () => {
     showAllGames();
+})
+
+sortHighBtn.addEventListener("click", () => {
+    deleteChildElements(gamesContainer);
+    addGamesToPage(sortedGamesHighest);
+})
+
+sortLowBtn.addEventListener("click", () => {
+    deleteChildElements(gamesContainer);
+    addGamesToPage(sortedGamesLowest);
 })
 /*************************************************************************************
  * Challenge 6: Add more information at the top of the page about the company.
@@ -191,11 +203,18 @@ descriptionContainer.appendChild(totalUnfundedDesc);
 const firstGameContainer = document.getElementById("first-game");
 const secondGameContainer = document.getElementById("second-game");
 
-const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
+const sortedGamesHighest =  GAMES_JSON.toSorted( (item1, item2) => {
     return item2.pledged - item1.pledged;
 });
 
-let [firstGame, secondGame, ...others] = sortedGames;
+const sortedGamesLowest =  GAMES_JSON.toSorted( (myitem1, myitem2) => {
+    return myitem1.pledged - myitem2.pledged;
+});
+
+console.log(sortedGamesLowest);
+
+
+let [firstGame, secondGame, ...others] = sortedGamesHighest;
 let [firstName, secondName] = [firstGame.name, secondGame.name]
 
 // use destructuring and the spread operator to grab the first and second games
