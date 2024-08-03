@@ -9,6 +9,23 @@ body {
     width: 50px;
 }
 
+
+.stats-section, .welcome-section, .games-section{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.stats-section{
+    background-color: rgb(66, 245, 155);
+}
+
+.games-section{
+    background-color: rgb(66, 179, 245);
+}
+
+.welcome-section{
+    background-color: rgb(66, 111, 245);
+}
 .header {
     display: flex;
     background-color: lightblue;
@@ -17,6 +34,7 @@ body {
     margin-left: -10px;
     margin-right: -10px;
     margin-top: -10px;
+    border-radius: 10px;
 }
 
 .stats-container {
@@ -26,7 +44,7 @@ body {
 
 .stats-container:hover{
     cursor: pointer;
-    box-shadow: 0 0 30px lightblue;
+    box-shadow: 0 0 30px rgb(23, 83, 48);
 }
 
 .stats-card {
