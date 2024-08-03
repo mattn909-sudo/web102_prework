@@ -27,7 +27,7 @@ const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
-
+    deleteChildElements(gamesContainer);
     // loop over each item in the data
     games.forEach((game) => {
         const newDiv = document.createElement('div');
@@ -211,9 +211,6 @@ const sortedGamesLowest =  GAMES_JSON.toSorted( (myitem1, myitem2) => {
     return myitem1.pledged - myitem2.pledged;
 });
 
-console.log(sortedGamesLowest);
-
-
 let [firstGame, secondGame, ...others] = sortedGamesHighest;
 let [firstName, secondName] = [firstGame.name, secondGame.name]
 
@@ -228,3 +225,14 @@ firstGameContainer.appendChild(topPledge);
 let runnerPledge = document.createElement('p');
 runnerPledge.innerHTML = secondName;
 secondGameContainer.appendChild(runnerPledge);
+
+const searchInput = document.querySelector('[data-search]');
+
+searchInput.addEventListener("input", (e) => {
+    const value = e.target.value.toLowerCase();
+    let searchArray = [];
+    GAMES_JSON.forEach((game) => {
+        game.name.toLowerCase().includes(value) ? searchArray.push(game): null;
+    })
+    addGamesToPage(searchArray);
+})
